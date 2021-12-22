@@ -1,0 +1,17 @@
+<section class="welcome">
+    <div class="container">
+        <h2>Welcome {{firstName}}!</h2>
+        <br>
+        <br>
+        <p *ngIf="usersService.hasCart">You have open cart from {{userCreateCartDate}}</p>
+        <p *ngIf="!usersService.hasCart">You don't have an open cart, click on "Start Shopping" to start shopping.</p>
+        <br>
+        <p *ngIf="usersService.hasCart && userHasOrder">Your last purcase was on {{userLastOrderDate}}</p>
+        <p *ngIf="usersService.hasCart && !userHasOrder">You haven't made an order yet..</p>
+    </div>
+    <br>
+    <br>
+    <div class="button">
+        <button mat-stroked-button class="button" (click)="onStartShoppingClicked()">Start Shopping</button>
+    </div>
+</section>

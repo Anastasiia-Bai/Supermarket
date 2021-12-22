@@ -1,0 +1,54 @@
+<div class="adminShop">
+    <div class="adminCart">   
+        <div class="admin-header">
+            <button type="button" mat-button class="addProduct-btn" (click)="onAddProductClicked()">Add Product</button>
+        </div>
+
+        <!-- ADD PRODUCT -->
+    
+        <form class="addProduct" [formGroup]="form" (submit)="onSaveProduct()">    
+            <div class="productForm">
+                <select formControlName="categoryId" *ngIf="adminService.addProductForm">
+                    <option disabled value="" hidden>Choose category of product</option>
+                    <option *ngFor="let category of categories" [value]="category.categoryId">{{category.categoryName}}</option>
+                </select>    
+                <br>
+                <input *ngIf="adminService.addProductForm" type="text" formControlName="productName" placeholder="Enter a product name">
+                <br>
+                <input *ngIf="adminService.addProductForm" type="text" formControlName="price" placeholder="Enter a price">
+                <br>
+                <br>
+                <div *ngIf="adminService.addProductForm" style="text-align:center;">
+                    <input type="file" name="file" (change)="onFileSelected($event)" formControlName="image">
+                </div>
+                <br>
+                <br>
+                <button *ngIf="adminService.addProductForm" mat-raised-button class="saveProduct-btn" type="submit">Save product</button>
+            </div>
+        </form>
+
+        <!-- EDIT PRODUCT -->
+
+        <form class="editProduct" [formGroup]="form">    
+            <div class="productForm">
+                <select formControlName="categoryId" *ngIf="adminService.onEditProductClicked && !adminService.addProductForm">
+                    <option disabled value="" hidden>Choose category of product</option>
+                    <option *ngFor="let category of categories" [value]="category.categoryId">{{category.categoryName}}</option>
+                </select>   
+                <br>
+                <input *ngIf="adminService.onEditProductClicked  && !adminService.addProductForm" type="text"
+                       formControlName="productName" placeholder="{{adminService.productName}}"> 
+                <br>
+                <input *ngIf="adminService.onEditProductClicked  && !adminService.addProductForm" type="text" 
+                       formControlName="price" placeholder="{{adminService.price}}">
+                <br>
+                <button *ngIf="adminService.onEditProductClicked && !adminService.addProductForm" mat-raised-button 
+                        class="saveProduct-btn" type="submit" (click)='onEditProductClicked()'>Edit product</button>    
+            </div>
+        </form>
+    </div>
+    
+    <div class="products">
+        <app-products></app-products>
+    </div>
+</div>

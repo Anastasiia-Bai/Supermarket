@@ -1,0 +1,60 @@
+<div class="order">
+    <div class="cart">
+        <div>
+            <div class="cart-header">
+                <h2>Your cart :</h2>
+            </div>
+            <div class="cartProducts-div">
+                <div class="product" *ngFor="let product of shareDataService.cartProducts; let i = index">
+                    <img src={{url}}{{product.image}}
+                        onerror='this.src="https:\\us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci.jpg?ver=6"'>
+                    <br>
+                    <br>
+                    <h3>{{product.productName}}</h3>
+                    <h3>{{product.amount}}</h3>
+                    <h3>{{(product.price * product.amount).toFixed(2)}}</h3>
+                </div>
+            </div>
+        
+            <div class="cart-footer">
+                <h2>Total : {{shareDataService.finalPrice}}</h2>
+                <button mat-button class="back-btn" (click)='onBackToShopClicked()'>Back to shop</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="orderContainer">
+        <div class="orderForm">
+            <h2> Order </h2>
+            <form [formGroup]="orderForm" (ngSubmit)="newOrder()">
+                <h4> Shipping Details </h4>
+                <br />
+                <label>City</label>
+                <br>
+                <input (dblclick)="getCity()" formControlName="sendCity" type="text" placeholder="Try double click" />
+                <br />
+                <br />
+                <label>Street</label>
+                <br>
+                <input (dblclick)="getStreet()" formControlName="sendStreet" type="text"
+                    placeholder="Try double click" />
+                <br />
+                <br />
+                <label>Date</label>
+                <br>
+                <input type="date" placeholder="Date" formControlName="sendDate">
+                <br />
+                <br />
+                <h4> Payments </h4>
+                <br />
+                <input id="cc-number" type="tel" autocomplete="cc-number" ccNumber formControlName="payEnd"
+                    placeholder="Credit card" />
+                <br />
+                <br />
+                <button mat-raised-button> Order </button>
+
+                <div class="notification" *ngIf="isNote"> {{formNotes}} </div>
+            </form>
+        </div>
+    </div>
+</div>

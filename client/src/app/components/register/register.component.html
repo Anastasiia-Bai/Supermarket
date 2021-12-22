@@ -1,0 +1,58 @@
+<div class="registerContainer">
+    <div class="register">
+        <h2 *ngIf="!usersService.isLogged"> Sign up </h2>
+        <br />
+        <br />
+        <form *ngIf="!usersService.isLogged" [formGroup]="signUpForm" (ngSubmit)="signInSubmit()">
+            <!-- STEP 1 -->
+            <div *ngIf="!step">
+                <input formControlName="userId" type="text" placeholder="ID number" />
+                <br />
+                <br />
+                <input formControlName="email" type="text" placeholder="Email" />
+                <br />
+                <br />
+                <input formControlName="password" type="password" placeholder="Password" />
+                <br />
+                <br />
+                <input formControlName="passwordConfirm" type="password" placeholder="Confirm Password" />
+                <br />
+                <br />
+                <div class="notification">
+                    <h3>{{notification1}}</h3>
+                </div>
+                <br />
+                <div class="buttons">
+                    <button mat-stroked-button (click)="signUpCancel()"> Cancel </button>
+                    <button type="button" color="primary" mat-stroked-button (click)="nextStep()"> Next </button>
+                </div>
+            </div>
+            <!-- STEP 2 -->
+            <div *ngIf="step">
+                <input formControlName="firstName" type="text" placeholder="First name" />
+                <br />
+                <br />
+                <input formControlName="lastName" type="text" placeholder="Last name" />
+                <br />
+                <br />
+                <select formControlName="city">
+                    <option value="" hidden>Please choose city</option>
+                    <option *ngFor="let city of cities" [value]="city">{{city}}</option>
+                </select>
+                <br />
+                <br />
+                <input formControlName="street" type="text" placeholder="Street" />
+                <br />
+                <br />
+                <div class="notification">
+                    <h3>{{notification2}}</h3>
+                </div>
+                <br />
+                <div class="buttons">
+                    <button mat-stroked-button (click)="backStep()" type="button"> Back </button>
+                    <button color="primary" mat-stroked-button type="submit"> Submit </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

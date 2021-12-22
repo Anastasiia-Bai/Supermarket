@@ -1,0 +1,17 @@
+<mat-toolbar>
+    <div>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onLogoClicked()">
+            <img src="../../../assets/images/logo.jpg" alt="logo">
+        </button>
+        <button mat-button *ngIf="usersService.isLogged" class="logout-btn" (click)="onLogoutClicked()">Logout</button>
+    </div>
+
+    <div>
+        <p style="text-decoration: underline; font-size: 23px;"> Contact: </p>
+        <p>
+            Phone: +972123456789 <br> 
+            Email: <a href="#">onlineShoppingContact@gmail.com</a>
+        </p>
+    </div>
+
+</mat-toolbar>

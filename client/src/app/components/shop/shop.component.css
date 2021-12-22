@@ -1,0 +1,22 @@
+.shop {
+    min-height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* margin-top: 25px; */
+}
+
+.cart {
+    grid-column: span 3;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px dotted black;
+    border-right: none;
+    border-top: none;
+}
+
+.products {
+    grid-column: span 9;  
+    border: 2px dotted black; 
+    border-top: none;
+}

@@ -1,0 +1,32 @@
+<div class="categories-row">
+    <button mat-button *ngFor="let currentCategory of categories" 
+        (click)="shareDataService.getCurrentCategoryProducts(currentCategory.categoryId)" class="category-box">{{
+        currentCategory.categoryName }}</button>
+</div>
+
+<div class="productsContainer">
+    <div class="product" *ngFor="let product of shareDataService.products; let i = index">
+        <img src={{url}}{{product.image}}
+            onerror='this.src="https:\\us.123rf.com/450wm/pe3check/pe3check1710/pe3check171000054/88673746-aucune-image-disponible-signe-ic%C3%B4ne-internet-pour-indiquer-l-absence-d-image-jusqu-%C3%A0-ce-que-celle-ci.jpg?ver=6"'>
+        <br>
+        <br>
+        <h3>{{product.productName}}</h3>
+        <p>{{product.price}}</p>
+        <br>
+        <div class="a-size" *ngIf="!isAdmin">
+            <span class="size">
+              <span class="update-product-in-cards">
+                <button (click)="addAmountToProduct(i)" class="amount">+</button> 
+                &nbsp;&nbsp;
+                <span class="cart-item-amount">{{shareDataService.products[i].amount? shareDataService.products[i].amount:1}}
+                </span> 
+                &nbsp;&nbsp;
+                <button (click)="reduceAmountFromProduct(i)" class="amount">-</button>
+              </span>
+            </span>
+        </div>
+        <br>
+        <button *ngIf="!isAdmin" mat-raised-button (click)="onAddToCartClicked(i)" class="addButton">Add to cart</button>
+        <button *ngIf="isAdmin" mat-raised-button (click)="onEditProductClicked(i)" class="addButton">Edit product</button>
+    </div>
+</div>

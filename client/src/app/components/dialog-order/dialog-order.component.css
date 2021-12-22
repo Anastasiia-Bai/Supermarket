@@ -1,0 +1,33 @@
+* {
+    text-align: center;
+} 
+
+mat-dialog-content{
+    text-align: center;
+}
+
+mat-dialog-actions{
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dialog {
+    border: 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    height: 23%;
+    width: 25%;
+}
+
+h2 {
+    margin-top: 15px;
+}
+
+.click-a {
+    text-decoration: underline;
+}

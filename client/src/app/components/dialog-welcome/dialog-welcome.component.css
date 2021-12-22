@@ -1,0 +1,33 @@
+* {
+    text-align: center;
+}
+
+button{
+    background-color: blanchedalmond;
+}
+
+mat-dialog-content{
+    text-align: center;
+}
+
+mat-dialog-actions{
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.mat-dialog-container {
+    border: 1px solid black;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    height: 25%;
+    width: 30%;
+}
+
+h2 {
+    margin-top: 20px;
+}

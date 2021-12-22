@@ -1,0 +1,9 @@
+<h2>Login</h2>
+<div id="login-form">
+    <input class="w3-input" type="text" placeholder="User email" [(ngModel)] = "email">
+    <br />
+    <input class="w3-input" type="password" placeholder="Password" [(ngModel)] = "password">
+    <br />
+    <button mat-stroked-button class="button" (click)="onLoginClicked()">Login</button>
+</div>
+<h2>Not registered yet? <a href="/register">Register</a></h2>

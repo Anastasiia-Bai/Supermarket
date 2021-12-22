@@ -1,0 +1,32 @@
+mat-toolbar {
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 2px dotted black;
+}
+mat-toolbar img {
+    width: 100px;
+    border-radius: 50%;
+    border: 4px black dashed;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.mat-toolbar-single-row {
+    justify-content: space-between;
+}
+
+.mat-icon-button {
+    height: 100px;
+    width: 0;
+}
+
+.logout-btn {
+    margin-left: 130px;
+    background-color: rgba(66,153,66, 0.9);
+    font-weight: bold;
+}
+
+.search {
+    height: 25px;
+    width: 250px;
+    border-radius: 5px;
+}
